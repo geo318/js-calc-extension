@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "a tiny, dependency free library for safe and error free calculations in JS and TS",
   "main": "index.js",
-  "types": "types/index.d.ts",
+  "types": "./types/index.d.ts",
   "scripts": {
     "test": "test"
   },

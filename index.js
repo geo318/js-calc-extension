@@ -78,3 +78,5 @@ export function formatNumber(formatter = formatCurrency(), number) {
   if (!number) return '0'
   return formatter.format(number).replaceAll(CURRENCY_SYMBOL_REGEX, '').trim()
 }
+
+export { parseFloatingPoint, purge, formatCurrency, formatNumber }

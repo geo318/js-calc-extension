@@ -20,3 +20,5 @@ declare function formatNumber(
   formatter: Intl.NumberFormat,
   number: number
 ): string
+
+export { add, multiply, subtract, remainder, percent, format, formatNumber }
