@@ -8,7 +8,7 @@ declare global {
      * @param {number} round - The number to subtract from.
      * @returns {number} The result of the subtraction.
      */
-    subtract(num: number | string, round: number): number
+    subtract(num: number | string, round?: number): number
 
     /**
      * Adds two numbers, with support for string inputs and optional rounding.
