@@ -1,6 +1,6 @@
 {
   "name": "@geo318/safe-calc",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "a tiny, dependency free library for safe and error free calculations in JS and TS",
   "main": "index.js",
   "types": "./types/index.d.ts",
