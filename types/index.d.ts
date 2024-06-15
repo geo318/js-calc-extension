@@ -5,7 +5,7 @@ declare global {
      * Subtracts one number from another, with support for string inputs.
      *
      * @param {number|string} num - The number or string to be subtracted.
-     * @param {number} round - The number to subtract from.
+     * @param {number} [round=2] - The number to subtract from.
      * @returns {number} The result of the subtraction.
      */
     subtract(num: number | string, round?: number): number

@@ -5,7 +5,7 @@
   "main": "index.js",
   "types": "./types/index.d.ts",
   "scripts": {
-    "test": "test"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -20,5 +20,8 @@
     "error free calculation"
   ],
   "author": "geo318",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "jest": "^29.7.0"
+  }
 }
