@@ -6,7 +6,8 @@
   "types": "./types/index.d.ts",
   "scripts": {
     "test": "jest",
-    "tsc": "tsc --noEmit"
+    "tsc": "tsc --noEmit",
+    "tests": "npm run test && npm run tsc"
   },
   "repository": {
     "type": "git",
@@ -22,11 +23,9 @@
   ],
   "author": "geo318",
   "license": "MIT",
-  "dependencies": {
+  "devDependencies": {
+    "typescript": "^5.4.5",
     "@types/jest": "^29.5.12",
     "jest": "^29.7.0"
-  },
-  "devDependencies": {
-    "typescript": "^5.4.5"
   }
 }
