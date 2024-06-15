@@ -14,7 +14,10 @@
   "keywords": [
     "math",
     "calc",
-    "calculation"
+    "calculation",
+    "safe calculation",
+    "simple calculation",
+    "error free calculation"
   ],
   "author": "geo318",
   "license": "MIT"
