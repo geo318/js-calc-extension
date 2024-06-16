@@ -111,7 +111,7 @@ npm install @geo318/safe-calc
 To use the module in your project, first require it and then you can start using the extended `Number` prototype methods.
 
 ```javascript
-const NumberExtensions = require('number-prototype-extensions');
+import '@geo318/safe-calc';
 
 // Example usage:
 const result = (115611).subtract('111').divide(5).subtract(9).add(1);
