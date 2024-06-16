@@ -1,4 +1,5 @@
-# Number Prototype Extensions
+# Safe calculations 
+###Number Prototype Extensions
 
 Enhance your JavaScript `Number` prototype with this module, offering robust arithmetic operations and formatting capabilities. This module handles floating point errors, parses string inputs, and ensures precise rounding.
 
@@ -103,7 +104,7 @@ Finds the remainder of a division operation, with support for string inputs and 
 To install the module, run the following command:
 
 ```sh
-npm install number-prototype-extensions
+npm install @geo318/safe-calc
 ```
 ## Usage
 
