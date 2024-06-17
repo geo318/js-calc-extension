@@ -3,7 +3,7 @@
 
 Enhance your JavaScript `Number` prototype with this module, offering robust arithmetic operations and formatting capabilities. This module handles floating point errors, parses string inputs, and ensures precise rounding.
 
-![npm](https://img.shields.io/npm/v/number-prototype-extensions) ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg) ![Dependencies: None](https://img.shields.io/badge/Dependencies-None-brightgreen)
+![npm](https://img.shields.io/npm/v/@geo318/safe-calc) ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg) ![Dependencies: None](https://img.shields.io/badge/Dependencies-None-brightgreen)
 
 ## Features
 
