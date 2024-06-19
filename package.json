@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "safe-js-calc"
+    "url": "https://github.com/geo318/js-calc-extension.git"
   },
   "keywords": [
     "math",
