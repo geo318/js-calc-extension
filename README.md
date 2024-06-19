@@ -1,6 +1,19 @@
-# Number Prototype Extensions
+# Safe calculations 
+###Number Prototype Extensions
 
-This module provides extensions to the `Number` prototype to support various arithmetic operations and formatting with additional features such as parsing string inputs, handling floating point errors, and rounding results.
+Enhance your JavaScript `Number` prototype with this module, offering robust arithmetic operations and formatting capabilities. This module handles floating point errors, parses string inputs, and ensures precise rounding.
+
+![npm](https://img.shields.io/npm/v/@geo318/safe-calc) ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg) ![Dependencies: None](https://img.shields.io/badge/Dependencies-None-brightgreen)
+
+## Features
+
+- **Arithmetic Operations:** Add, subtract, multiply, divide, and find remainders.
+- **String Parsing:** Handles both numbers and numeric strings.
+- **Rounding:** Optional rounding for all operations.
+- **Currency Formatting:** Format numbers as currency.
+- **Dependence-Free:** No external dependencies.
+- **Type Checked:** Uses TypeScript for type checking.
+- **Tested:** Utilizes Jest for robust testing.
 
 ## Methods
 
@@ -10,97 +23,112 @@ Subtracts one number from another, with support for string inputs.
 
 - **Parameters:**
   - `num` (number|string): The number or string to be subtracted.
-  - `round` (number): The number to subtract from.
+  - `round` (number): The number of decimal places to round the result to.
 - **Returns:** `number` - The result of the subtraction.
+
+**Example:**
+```javascript
+(115611).subtract('111').divide(5).subtract(9).add(1); // Returns 23100.8
+```
 
 ### `Number.prototype.add(num, round = 2)`
 
 Adds two numbers, with support for string inputs and optional rounding.
 
 - **Parameters:**
-  - `num` (number|string): The first number or numeric string to add.
+  - `num` (number|string): The number or numeric string to add.
   - `round` (number, optional): The number of decimal places to round the result to. Defaults to 2.
 - **Returns:** `number` - The result of the addition, rounded to the specified decimal places.
+
+**Example:**
+```javascript
+(100.5).add('200.75', 1); // Returns 301.3
+```
 
 ### `Number.prototype.multiply(num, round = 2)`
 
 Multiplies two numbers, with support for string inputs and optional rounding.
 
 - **Parameters:**
-  - `num` (number|string): The first number or numeric string to multiply.
+  - `num` (number|string): The number or numeric string to multiply.
   - `round` (number, optional): The number of decimal places to round the result to. Defaults to 2.
 - **Returns:** `number` - The result of the multiplication, rounded to the specified decimal places.
+
+**Example:**
+```javascript
+(10).multiply('3.14159', 3); // Returns 31.416
+```
 
 ### `Number.prototype.percent(round = 2)`
 
-Multiplies a number by 100, with support for string inputs and optional rounding.
+Converts a number to a percentage, with optional rounding.
 
 - **Parameters:**
   - `round` (number, optional): The number of decimal places to round the result to. Defaults to 2.
-- **Returns:** `number` - The result of the multiplication, rounded to the specified decimal places.
+- **Returns:** `number` - The result as a percentage, rounded to the specified decimal places.
 
+**Example:**
+```javascript
+(0.456).percent(); // Returns 45.60
+```
 ### `Number.prototype.divide(num, round = 2)`
 
 Divides two numbers, with support for string inputs and optional rounding.
 
 - **Parameters:**
-  - `num` (number|string): The numerator, which can be a number or numeric string.
+  - `num` (number|string): The number or numeric string to divide by.
   - `round` (number, optional): The number of decimal places to round the result to. Defaults to 2.
 - **Returns:** `number` - The result of the division, rounded to the specified decimal places, or 0 if the divisor is 0.
 
+**Example:**
+```javascript
+(100).divide('3', 3); // Returns 33.333
+```
+
 ### `Number.prototype.remainder(num = 2, round = 2)`
 
-Gets the remainder of a division operation, with support for string inputs and optional rounding.
+Finds the remainder of a division operation, with support for string inputs and optional rounding.
 
 - **Parameters:**
-  - `num` (number|string, optional): The numerator, which can be a number or numeric string. Defaults to 2.
+  - `num` (number|string, optional): The number or numeric string to divide by. Defaults to 2.
   - `round` (number, optional): The number of decimal places to round the result to. Defaults to 2.
 - **Returns:** `number` - The remainder of the division, rounded to the specified decimal places, or 0 if the divisor is 0.
 
-### `Number.prototype.format(currency = 'EUR', digits = 2, locale = 'us')`
+**Example:**
+```javascript
+(10).remainder('3', 1); // Returns 1.0
+```
 
-Formats a number as currency.
+## Installation
 
-- **Parameters:**
-  - `currency` (string, optional): The currency symbol to use. Defaults to 'EUR'.
-  - `digits` (number, optional): The number of decimal digits to include. Defaults to 2.
-  - `locale` (string, optional): The locale to use for formatting. Defaults to 'us'.
-- **Returns:** `string` - The formatted currency string.
+To install the module, run the following command:
 
-## Helper Functions
+```sh
+npm install @geo318/safe-calc
+```
+## Usage
 
-### `parseFloatingPoint(num, digits = 2)`
+To use the module in your project, first require it and then you can start using the extended `Number` prototype methods.
 
-Parses a number to a fixed number of decimal places.
+```javascript
+import '@geo318/safe-calc';
 
-- **Parameters:**
-  - `num` (number): The number to parse.
-  - `digits` (number, optional): The number of decimal places. Defaults to 2.
-- **Returns:** `number` - The parsed number.
+// Example usage:
+const result = (115611).subtract('111').divide(5).subtract(9).add(1);
+console.log(result); // Outputs: 23100.8
 
-### `purge(x)`
+// More examples:
+console.log((123.456).add('100', 1)); // Outputs: 223.5
+console.log((100).multiply('3', 3)); // Outputs: 300.000
+console.log((0.456).percent()); // Outputs: 45.60
+console.log((100).divide('3', 3)); // Outputs: 33.333
+console.log((10).remainder('3', 1)); // Outputs: 1.0
+console.log((1234.56).format('USD', 2, 'en-US')); // Outputs: "$1,234.56"
+```
 
-Parses a string or number to a float, removing any non-numeric characters if necessary.
+## License
 
-- **Parameters:**
-  - `x` (number|string): The input to purge.
-- **Returns:** `number` - The parsed number, or 0 if invalid.
+This project is licensed under the MIT License.
 
-### `formatCurrency(currency = 'EUR', maximumFractionDigits = 2, locale = 'us')`
+Enhance your number handling in JavaScript with ease and precision using this comprehensive and dependency-free module!
 
-Formats a number as currency using the specified parameters.
-
-- **Parameters:**
-  - `currency` (string, optional): The currency symbol to use. Defaults to 'EUR'.
-  - `maximumFractionDigits` (number, optional): The maximum number of decimal digits. Defaults to 2.
-  - `locale` (string, optional): The locale to use. Defaults to 'us'.
-- **Returns:** `Intl.NumberFormat` - The formatter instance.
-
-### `formatNumber(formatter = formatCurrency(), number = 0)`
-
-Formats a number using a specified formatter.
-
-- **Parameters:**
-  - `formatter` (Intl.NumberFormat, optional): The formatter to use. Defaults to the `formatCurrency` function.
-  - `number` (number, optional): The number to format. Defaults to 0.
-- **Returns:** `string` - The formatted number.
