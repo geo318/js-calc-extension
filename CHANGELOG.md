@@ -1,8 +1,6 @@
 # Changelog
 
-## 2.0.0 - Unreleased
-
-Prepared 2026-10-12. This version is not claimed to be published to npm.
+## 2.0.0 - 2026-10-12
 
 ### Breaking changes
 
@@ -33,6 +31,8 @@ Prepared 2026-10-12. This version is not claimed to be published to npm.
   license text, migration guide, and release instructions.
 - Node 22/24 CI, isolated npm-tarball consumer checks, deterministic independent
   Python Decimal comparisons, algebraic properties, and OIDC release workflow.
+- Explicit manual and release-branch publishing, registry preflight safeguards,
+  post-publish verification, and GitHub release creation after npm success.
 
 ### Fixed
 

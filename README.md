@@ -17,8 +17,7 @@ toMinorUnits(total);                      // 2890n
 ```
 
 **v2 is a breaking release.** Root imports no longer modify `Number.prototype`.
-See [MIGRATION.md](./MIGRATION.md) and [CHANGELOG.md](./CHANGELOG.md). The source
-is prepared for 2.0.0; check the npm registry before assuming it is published.
+See [MIGRATION.md](./MIGRATION.md) and [CHANGELOG.md](./CHANGELOG.md).
 
 ## Install and import
 
@@ -224,8 +223,8 @@ npm run test:reference    # Python 3 required: independent decimal oracle + prop
 The reference check uses a fixed seed and Python's standard-library `decimal`
 implementation, not a second copy of our algorithm. Python is development-only.
 `PYTHON=/path/to/python` overrides the executable. CI checks Node 22 and 24;
-release publishing repeats validation and requires a deliberately published
-GitHub release. See [docs/RELEASING.md](./docs/RELEASING.md).
+release publishing repeats validation and requires an explicit release trigger.
+See [docs/RELEASING.md](./docs/RELEASING.md).
 
 ## License
 
