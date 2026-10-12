@@ -1,0 +1,38 @@
+name: Publish npm release
+on:
+  release:
+    types: [published]
+permissions:
+  contents: read
+concurrency:
+  group: npm-publish
+  cancel-in-progress: false
+jobs:
+  publish:
+    if: ${{ !github.event.release.prerelease }}
+    runs-on: ubuntu-latest
+    environment: npm
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          ref: ${{ github.event.release.tag_name }}
+          persist-credentials: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: 24
+          registry-url: https://registry.npmjs.org
+          package-manager-cache: false
+      - name: Check release tag and npm OIDC support
+        env:
+          RELEASE_TAG: ${{ github.event.release.tag_name }}
+        run: |
+          node --input-type=module -e "import fs from 'node:fs'; const p = JSON.parse(fs.readFileSync('package.json')); if (process.env.RELEASE_TAG !== 'v' + p.version || !/^\d+\.\d+\.\d+$/.test(p.version)) throw Error('Release tag must match the stable package version');"
+          node -e "const [a,b,c] = require('node:child_process').execSync('npm --version').toString().trim().split('.').map(Number); if (a < 11 || (a === 11 && (b < 5 || (b === 5 && c < 1)))) throw Error('npm >=11.5.1 is required for OIDC');"
+      - run: npm ci --ignore-scripts
+      - run: npm run check
+      - run: npm run test:reference
+      - name: Publish using npm trusted publishing
+        run: npm publish --access public
